@@ -7,21 +7,29 @@ const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
 
+const allowedOrigins = ["http://localhost:5173", "https://courtage.fl4ir.com"];
+
 // Activer CORS pour les requêtes HTTP
 app.use(cors({
-  origin: "http://localhost:5173", // Adresse de votre frontend Vue.js
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Origine non autorisée par CORS"));
+    }
+  },
   methods: ["GET", "POST"],
   credentials: true,
 }));
 
 // Configurer CORS pour Socket.IO
-const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:5173", // Adresse de votre frontend Vue.js
-    methods: ["GET", "POST"],
-    credentials: true,
-  },
-});
+// const io = new Server(server, {
+//   cors: {
+//     origin: "http://localhost:5173", // Adresse de votre frontend Vue.js
+//     methods: ["GET", "POST"],
+//     credentials: true,
+//   },
+// });
 
 let connectedUsers = {}; // Stocker les utilisateurs connectés
 
