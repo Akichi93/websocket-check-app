@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 // Activer CORS pour les requêtes HTTP
 app.use(cors({
-  origin: "https://courtage.fl4ir.com", // Adresse de votre frontend Vue.js
+  origin: "https://courtage.fl4ir.com/", // Adresse de votre frontend Vue.js
   methods: ["GET", "POST"],
   credentials: true,
 }));
@@ -17,7 +17,7 @@ app.use(cors({
 // Configurer CORS pour Socket.IO
 const io = new Server(server, {
   cors: {
-    origin: "https://courtage.fl4ir.com", // Adresse de votre frontend Vue.js
+    origin: "https://courtage.fl4ir.com/", // Adresse de votre frontend Vue.js
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -51,4 +51,4 @@ io.on("connection", (socket) => {
 
 server.listen(3000, () => {
   console.log("Le serveur est en écoute sur le port 3000");
-}); regarde
+});
