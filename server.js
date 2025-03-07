@@ -27,7 +27,7 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
     credentials: true,
   },
-  transports: ["websocket"], // Forcer l'utilisation de WebSocket
+ transports: ["websocket", "polling"],
 });
 
 let connectedUsers = {}; // Stocker les utilisateurs connectés
