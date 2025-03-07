@@ -58,6 +58,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(3000, () => {
-
-  console.log("Le serveur est en écoute sur le port 3000");
+  console.log("Le serveur est en écoute sur le port 3000");
 });
