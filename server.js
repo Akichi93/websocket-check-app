@@ -18,6 +18,7 @@ app.use(cors({
 const io = new Server(server, {
   cors: {
     origin: ['*'], // Adresse de votre frontend Vue.js
+    allowedHeaders: ["Access-Control-Allow-Origin"],
     methods: ["GET", "POST"],
     credentials: true,
   },
