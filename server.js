@@ -15,13 +15,7 @@ app.use(cors({
 }));
 
 // Configurer CORS pour Socket.IO
-const io = new Server(server, {
-  cors: {
-    origin: ["http://localhost:5173","https://courtage.fl4ir.com"],  // Adresse de votre frontend Vue.js
-    methods: ["GET", "POST"],
-    credentials: true,
-  },
-});
+const io = new Server(server);
 
 let connectedUsers = {}; // Stocker les utilisateurs connectés
 
