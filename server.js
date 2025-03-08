@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 // Activer CORS pour les requêtes HTTP
 app.use(cors({
-  origin: ["http://localhost:5173","https://courtage.fl4ir.com"], // Adresse de votre frontend Vue.js
+  origin: ['*'], // Adresse de votre frontend Vue.js
   methods: ["GET", "POST"],
   credentials: true,
 }));
@@ -17,7 +17,7 @@ app.use(cors({
 // Configurer CORS pour Socket.IO
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173","https://courtage.fl4ir.com"],  // Adresse de votre frontend Vue.js
+    origin: ['*'], // Adresse de votre frontend Vue.js
     methods: ["GET", "POST"],
     credentials: true,
   },
